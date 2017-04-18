@@ -1,0 +1,168 @@
+<html>
+<head><title>simple calculator</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+#one,#four,#seven, #cancel, #equal {
+margin-left: 37%;
+margin-bottom: 10px;
+}
+
+#equal {
+width: 415px;
+}
+
+#cancel {
+background-color: #E13115;
+}
+.num {
+background-color: #008CBA;
+color: white;
+border: 1px solid black;
+width: 100px;
+height: 50px;
+font-size: 30px;
+}
+
+.operation {
+background-color: #4CAF50;
+color: white;
+border: 1px solid black;
+width: 100px;
+height: 50px;
+font-size: 30px;
+}
+
+#display {
+width: 430px;
+height: 50px;
+margin: 80px 50px 10px 36%;
+border: 2px solid black;
+border-radius: 10px;
+background-color: #B0E0E6;
+font-size: 50px;
+text-align:center;
+}
+
+h2{
+color: green;
+text-align: center;
+font-size: 80px;
+font-family: "cursive";
+}
+
+</style>
+<script>
+function clickOne() {
+document.cal.display.value += 1;
+};
+
+function clickTwo() {
+document.cal.display.value += 2;
+};
+
+function clickThree() {
+document.cal.display.value += 3;
+};
+
+function clickFour() {
+document.cal.display.value += 4;
+};
+
+function clickFive() {
+document.cal.display.value += 5;
+};
+
+function clickSix() {
+document.cal.display.value += 6;
+};
+
+function clickSeven() {
+document.cal.display.value += 7;
+};
+
+function clickEight() {
+document.cal.display.value += 8;
+};
+
+function clickNine() {
+document.cal.display.value += 9;
+};
+
+function clickOne() {
+document.cal.display.value += 1;
+};
+
+function clickZero() {
+document.cal.display.value += 0;
+};
+
+function clickDot() {
+document.cal.display.value += ".";
+};
+
+function Cancel() {
+document.cal.display.value = ""
+};
+
+function Add() {
+document.cal.display.value += "+";
+};
+
+function Sub() {
+document.cal.display.value += "-";
+};
+
+function Mul() {
+document.cal.display.value += "*";
+};
+
+function Div() {
+document.cal.display.value += "/";
+};
+
+function Equals() {
+
+var equals = eval(document.cal.display.value)
+document.cal.display.value = equals;
+};
+
+</script>
+
+<body>
+<p>
+<h2>Calculator</h2>
+<form name="cal">
+<input name="display" id ="display" value=""> <br>
+
+<input type="button" id="one" class="num" value ="1" onclick="clickOne()">
+<input type="button" id="two" class="num" value ="2" onclick="clickTwo()">
+<input type="button" id="three" class="num" value ="3" onclick="clickThree()">
+<input type="button" id="add" class="operation" value ="+" onclick="Add()"><br>
+
+<input type="button" id="four" class="num" value ="4" onclick="clickFour()">
+<input type="button" id="five" class="num" value ="5" onclick="clickFive()">
+<input type="button" id="six" class="num" value ="6" onclick="clickSix()">
+<input type="button" id="sub" class="operation" value ="-" onclick="Sub()"><br>
+
+<input type="button" id="seven" class="num" value ="7" onclick="clickSeven()">
+<input type="button" id="eight" class="num" value ="8" onclick="clickEight()">
+<input type="button" id="nine" class="num" value ="9" onclick="clickNine()">
+<input type="button" id="mul" class="operation" value ="*" onclick="Mul()"><br>
+
+<input type="button" id="cancel" class="operation" value ="C" onclick="Cancel()">
+<input type="button" id="zero" class="num" value ="0" onclick="clickZero()">
+<input type="button" id="dot" class="num" value ="." onclick="clickDot()">
+<input type="button" id="div" class="operation" value ="/" onclick="Div()"><br>
+
+<input type="button" id="equal" class="operation" value ="=" onclick="Equals()">
+
+</form>
+</p>
+</body>
+</html>
