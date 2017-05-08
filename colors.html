@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lobster Two" rel="stylesheet">
+    <title>color click</title>
+    <style media="screen">
+    html, body {
+          font-family: 'Lobster Two', sans-serif;
+          height: 100%;
+          margin: 0;
+          overflow: hidden;
+      }
+      #wrapper {
+        min-height: 100%;
+      }
+      h2 {
+        text-align: center;
+        margin-top: 20%;
+        font-size: 3.3em;
+      }
+
+    </style>
+  </head>
+  <body id="wrapper">
+    <h2>Click and see the magic!!!!!!!!!!!</h2>
+  </body>
+  <script type="text/javascript">
+
+  var body = document.getElementById('wrapper');
+    body.addEventListener("click", function () {
+    var colors = ["#e09768", "#bc2214", "#08bddd", "#92C83E", "#EF4F99", "#65414D", "#F37054", "#94a50e", "#FFE4E1", "#5FC2E9", "#2A6497", "#9A74E2", "#FCDE4E", "#92c83e", "#F47AA5", "#8A9EB2", "#0F706A", "#B61C26", "#97582E"];
+    var randomColor = Math.round(Math.random() * colors.length);
+    document.body.style.backgroundColor = colors[randomColor];
+    console.log(randomColor);
+},false);
+  </script>
+</html>
