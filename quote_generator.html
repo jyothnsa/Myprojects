@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>
+Random quote generator
+</title>
+<style>
+/*body {
+    background-image: url("http://thumbs.dreamstime.com/z/abstract-geometric-colorful-background-vector-illustration-35100834.jpg") no-repeat center center fixed;
+background: #000000;
+}
+*/
+.wrapper {
+    text-align: center;
+}
+
+.button{
+
+    width: 10em;
+    height: 2em;
+    background-color: white; /* Saddle brown */
+    color: black;
+    position: relative;
+    top: 30px;
+    left:40%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   /* margin: 10px 20px;
+    bottom:50%;*/
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+  .button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+  .twitter-share-button:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+   .twitter-share-button{
+
+      font-size: 16px;
+      width: 56px;
+      height:25px;
+      background-color: white;
+      color: black;
+      align:center;
+      top: 15px;
+      text-decoration:none;
+      text-align: center;
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid;
+      border-radius: 5px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s; 
+      margin-left:10%;
+}
+
+.box{
+  text-align:center;
+  margin-top: 100px;
+  margin-left:450px;
+  height: 180px;
+  width: 40%;
+  background: #fff;
+  border: 1px solid #000;
+  font-size:25px;
+ }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+<script type="text/javascript">
+
+var myColors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', '#472E32', '#D2691E', '#DC143C',  '#FF4500', '#FF0000', '#3366FF', '#4682B4', '#A52A2A'];
+
+function Quotes(){
+  var quotes = ['Yesterday is not our\'s to recover, but tomorrow is ours to win or lose. ', 
+                'Find a place inside where there is joy, and the joy will burn out the pain', 
+                'Life is really simple, but we insist on making it complicated.' , 
+                'Love all, trust a few, do wrong to none.',
+                'Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.',
+                'If you want to be loved, be lovable.',
+                'Dont cry because it\'s over, smile because it happened.',
+                'You only live once, but if you do it right, once is enough.',
+                'If you tell the truth, you dont have to remember anything.',
+                'A woman\'s mind is cleaner than a mans: She changes it more often.',
+                'A successful man is one who makes more money than his wife can spend. A successful woman is one who can find such a man.',
+                'Friends are the siblings God never gave us.',
+                'Friendship is always a sweet responsibility, never an opportunity.',
+                'One loyal friend is worth ten thousand relatives.',
+                'A true friend freely, advises justly, assists readily, adventures boldly, takes all patiently, defends courageously, and continues a friend   unchangeably.' ,
+                'A friend is someone who gives you total freedom to be yourself.',
+                'No man is poor who has a Godly mother.',
+                'Perhaps it takes courage to raise children..',
+                'Art is the child of nature in whom we trace the features of the mother\'s face.',
+                'He didnt realize that love as powerful as your mothers for you leaves its own mark.'
+               ];
+
+  var length = quotes.length;
+  var rand = Math.round(Math.random()*(length - 1));
+
+   var result= quotes[rand];
+  // console.log(result);
+   document.getElementById("one").innerHTML=result;
+
+ /*var randomize = Math.floor(Math.random()*myColors.length);
+  $('.box').css("background-color", myColors[randomize]);*/
+  //return result;
+//var randomizing = Math.floor(Math.random()*myColors.length);
+  //$('.id').css("background-color", myColors[randomizing]);
+
+
+      var randomize = Math.floor(Math.random() * myColors.length);
+      $("html body").animate({
+        backgroundColor: myColors[randomize],
+        color: myColors[randomize]
+      }, 1000);
+
+
+document.getElementById('two').style.display = "";
+console.log(result);
+ $('#tweet').attr('href', "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +result);
+}
+window.onload = function() {
+  Quotes();
+};
+</script>
+
+</head>
+<body>
+
+
+<div class="box" id="two" style ="display: none">
+<div class="center-div" id="one" align="center"></div><br><br></div>
+<div class="wrapper">
+    <button class="button" onclick="Quotes()" style= "display: block">Find a new quote</button>
+<!--<button onclick="Quotes()">
+Find a new quote</button>
+-->
+<a href="#" class="twitter-share-button" id="tweet" target="_blank">Tweet</a>
+<!--
+<a class="twitter-share-button" id="tweet"
+  href="https://twitter.com/intent/tweet?text="
+  data-size="large">
+Tweet</a>
+-->
+
+</body>
+</html>
