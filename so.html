@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <style media="screen">
-    html,
-body {
+    html,body {
 margin: 0;
 background: #fafafa;
 font-family:'Fira Sans', 'Trebuchet MS', sans-serif;
@@ -26,7 +25,6 @@ background: #f8f8f8;
 -moz-user-select: none;
 -khtml-user-select: none;
 user-select: none;
-transform: rotate(0deg);
 }
 
 #knob:before {
@@ -34,9 +32,9 @@ content: '';
 position: absolute;
 height: 2px;
 width: 10px;
-top: 35px;
-left: 30px;
-transform: rotate(45deg);
+top: 95px;
+left: 10px;
+/*transform: rotate(45deg);*/
 background: #2a5;
 }
 
@@ -44,11 +42,10 @@ background: #2a5;
 position: absolute;
 height: 40px;
 width: 40px;
-top: 18%;
-left: 18%;
+top: 40%;
+left: 12%;
 border-radius: 100px;
 background: red;
-background: radial-gradient(ellipse at left bottom, rgba(255, 0, 0, 0.05) 0%, rgba( 0, 0, 0) 100%);
 border: 1px solid red;
 transform: inherit;
 }
@@ -67,14 +64,14 @@ transform: inherit;
 //  getDistance = function ( x1, y1, x2, y2 ) {
 //     return Math.sqrt((x1-x2) * (x1-x2) + (y2-y1) * (y2-y1));
 // },
-  var  knob = document.querySelector(".knob");
-    rotation = 0,
+  var  knob = document.querySelector(".knob"),
+
     isDragging = false;
 
     var arrowRects = knob.getBoundingClientRect();
     var arrowX = arrowRects.left + arrowRects.width / 2;
     var arrowY = arrowRects.top + arrowRects.height / 2;
-console.log(arrowRects)
+console.log(arrowRects);
 
 function mouseMoveHandler (event,touchorMouse){
   if (isDragging){
@@ -85,6 +82,7 @@ function mouseMoveHandler (event,touchorMouse){
            var curX = event.changedTouches[0].clientX,
            curY = event.changedTouches[0].clientY;
      }
+     console.log(arrowX . arrowY);
      console.log(Math.atan2(curY - arrowY, curX - arrowX));
 
      knob.style.transform = "rotate(" + Math.atan2(curY - arrowY, curX - arrowX)+ "rad)";
