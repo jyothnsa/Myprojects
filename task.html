@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    html,body {
+margin: 0;
+background: #fafafa;
+font-family:'Fira Sans', 'Trebuchet MS', sans-serif;
+}
+
+#knob {
+position: absolute;
+height: 200px;
+width: 200px;
+top: 50%;
+left: 50%;
+margin-top: -100px;
+margin-left: -100px;
+border-radius: 100px;
+border: 2px solid #000;
+box-sizing:border-box;
+background: #f8f8f8;
+-moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;
+}
+
+#knob:before {
+content: '';
+position: absolute;
+height: 2px;
+width: 10px;
+top: 95px;
+left: 10px;
+/*transform: rotate(45deg);*/
+background: #2a5;
+}
+
+#knobdimple {
+position: absolute;
+height: 40px;
+width: 40px;
+top: 40%;
+left: 12%;
+border-radius: 100px;
+background: red;
+border: 1px solid red;
+transform: inherit;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+ <div id="knob" class="knob">
+   <div id="knobdimple"></div>
+ </div>
+  <script type="text/javascript">
+  var  knob = document.querySelector(".knob");
+    var R2D, active, angle, center, init, rotate, rotation, start, startAngle, stop;
+        active = false;
+        angle = 0;
+        rotation = 0;
+        startAngle = 0;
+        center = {
+          x: 0,
+          y: 0
+        };
+
+
+        document.ontouchmove = function(event) {
+          return event.preventDefault();
+        };
+
+        init = function() {
+          knob.addEventListener("mousedown",
+                                function(event){
+                                  start(event,"mouse")
+                                });
+          knob.addEventListener("mousemove", function(event){
+
+                                                rotate(event,"mouse")
+          });
+          knob.addEventListener("mouseleave",stop,false);
+          knob.addEventListener("mouseup", stop, false);
+
+          knob.addEventListener("touchstart", function(event){
+                                      start(event,"touch")
+          });
+          knob.addEventListener("touchmove", function(event){
+                                                rotate(event,"touch")
+          });
+          knob.addEventListener("mouseleave",stop,false);
+          knob.addEventListener("touchend", stop, false);
+        };
+
+        R2D = 180 / Math.PI;
+
+        start = function(event,touchorMouse) {
+          event.preventDefault();
+          var height, left, top, width, x, y, _ref;
+          _ref = knob.getBoundingClientRect();
+            top = _ref.top;
+            left = _ref.left;
+            height = _ref.height;
+            width = _ref.width;
+          center = {
+            x: left + (width / 2),
+            y: top + (height / 2)
+          };
+
+         if(touchorMouse == "mouse"){
+          x = event.clientX - center.x;
+          y = event.clientY - center.y;
+        }else{
+           x = event.changedTouches[0].clientX- center.x;
+          y = event.changedTouches[0].clientY - center.y;
+        }
+
+          startAngle = R2D * Math.atan2(y, x);
+          active = true;
+        };
+
+        rotate = function(event,touchorMouse) {
+          event.preventDefault();
+          var d, x, y;
+        if(touchorMouse == "mouse"){
+          x = event.clientX - center.x;
+          y = event.clientY - center.y;
+        }else{
+           x = event.changedTouches[0].clientX- center.x;
+          y = event.changedTouches[0].clientY- center.y;
+        }
+
+          d = R2D * Math.atan2(y, x);
+          rotation = d - startAngle;
+          if (active) {
+            knob.style.transform = "rotate(" + (angle + rotation) + "deg)";
+          }
+        };
+
+        stop = function() {
+          angle = angle+rotation;
+          active = false;
+        };
+
+        init();
+
+</script>
+
+</html>
