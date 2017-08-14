@@ -60,8 +60,12 @@ transform: inherit;
  <div id="knob" class="knob">
    <div id="knobdimple"></div>
  </div>
+ <audio controls id=audio style="visibility:hidden;">
+   <source src="Knob-turn-click-sound.wav" type='audio/wav'>
+ </audio>
   <script type="text/javascript">
   var  knob = document.querySelector(".knob");
+  var audio = document.querySelector("#audio");
     var R2D, active, angle, center, init, rotate, rotation, start, startAngle, stop;
         active = false;
         angle = 0;
@@ -71,8 +75,6 @@ transform: inherit;
           x: 0,
           y: 0
         };
-
-
         document.ontouchmove = function(event) {
           return event.preventDefault();
         };
@@ -80,10 +82,10 @@ transform: inherit;
         init = function() {
           knob.addEventListener("mousedown",
                                 function(event){
-                                  start(event,"mouse")
+                                  start(event,"mouse");
+                                  audio.play();
                                 });
           knob.addEventListener("mousemove", function(event){
-
                                                 rotate(event,"mouse")
           });
           knob.addEventListener("mouseleave",stop,false);
@@ -150,6 +152,8 @@ transform: inherit;
         };
 
         init();
+
+
 
 </script>
 
