@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+html, body{
+  font-family: 'Satisfy', cursive;
+  background-color: #a7ce55;
+  color: #382420;
+}
+
+h1{
+  text-align: center;
+}
+
+#homepage{
+  max-width: 800px;
+  padding: 10px 20px;
+  margin: 50px auto;
+  background: rgb(39, 45, 30);
+  color: #edf1e9;
+  box-shadow: 1px 2px 3px rbga(0,0,0,2);
+}
+
+input[type="text"]{
+  display: block;
+  width: 80%;
+  margin: 20px 0 20px 0;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+#homepage h2 {
+  text-align:center;
+}
+
+#fruits{
+  color: #fff;
+}
+
+label{
+  font-weight: bold;
+  text-align: left;
+  font-size: 30px;
+}
+
+input[type="submit"]{
+  width: 60%;
+  display: block;
+  background: #f0f4e7;
+  color: #0e1407;
+  border: 0px;
+  border-radius: 3px;
+  padding: 5px;
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px auto;
+  cursor: pointer;
+}
+form{
+  max-width: 500px;
+  margin: 30px auto;
+}
+span{
+  display: inline-block;
+  margin: 0 10px;
+}
+span.distance{
+  float: right;
+  color: green;
+}
+
+span.true{
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    background: green;
+}
+span.false{
+    border-radius: 10px;
+    width: 10px;
+    height: 10px;
+    background: #ff5252;
+}
+li{
+    list-style-type: none;
+    font-size: 25px;
+    font-weight: bold;
+}
