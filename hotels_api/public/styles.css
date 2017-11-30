@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes|Parisienne');
 html,body{
-  font-family: 'Parisienne', cursive;
   background-image: url('./assets/Menu+Background+2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,19 +7,21 @@ html,body{
   background-position: center center;
 }
 #hotels-container{
-  max-widht: 750px;
+  font-family: 'Parisienne', cursive;
 }
 h1{
   text-align: center;
-  font-size: 3.5em;
+  font-size: 3em;
   color: #100D09;
 }
 h2{
   text-align: center;
   font-size: 1.5em;
 }
+#search {
+  margin: 1% 35%;
+}
 select{
-  margin: 0 0 5% 37%;
   width: 180px;
   height: 50px;
   border: 2px ridge #b59b7f;
@@ -29,10 +30,9 @@ select{
   font-family: 'Great Vibes', cursive;
   font-size: 1.5em;
   color: #b59b7f;
-  /*position: relative;*/
+  position: relative;
 }
 input[type="submit"]{
-  margin-left:37%;
   width: 180px;
   height: 50px;
   border: 2px ridge #b59b7f;
