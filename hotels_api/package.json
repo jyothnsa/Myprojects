@@ -1,0 +1,19 @@
+{
+  "name": "hotels_api",
+  "version": "1.0.0",
+  "description": "\"Constructing API for hotels information located in Vizag\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jyothsna",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "mongoose": "^4.13.4",
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

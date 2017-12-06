@@ -1,0 +1,73 @@
+<html>
+<head>
+<title> Practise :) </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="align_style.css">
+<link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" type="text/css">
+</head>
+<body>
+<div class="wrapper container">
+<div class = "row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="col-md-3 col-sm-3 col-xs-3 season">
+<h2>Spring</h2>
+<img src ="pics_related/crop_spring.jpg" id="all_seasons1" class="img-responsive pic" alt ="spring">
+</div>
+<div class="col-md-3 col-sm-3 col-xs-3 season">
+<h2>Summer</h2>
+<img src ="pics_related/crop_summer.jpg" id="all_seasons2" class="img-responsive pic" alt ="summer">
+</div>
+<div class="col-md-3 col-sm-3 col-xs-3 season">
+<h2>Autumn</h2>
+<img src ="pics_related/crop_autumn.jpg" id="all_seasons3" class="img-responsive pic" alt ="autumn">
+</div>
+<div class="col-md-3 col-sm-3 col-xs-3 season">
+<h2>Winter</h2>
+ <img src ="pics_related/crop_winter.jpg" id="all_seasons4" class="img-responsive pic" alt ="winter">
+</div>
+</div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+
+ $(".season").hover(function(){
+       $('#all_seasons1').hover(
+       function(){ $(this).addClass('animated flipInY') },
+       function(){ $(this).removeClass('animated flipOutY') }
+)
+    });
+       $('#all_seasons1').click(function() { alert("clicked on spring"); });
+
+ $(".season").hover(function(){
+       $('#all_seasons2').hover(
+       function(){ $(this).addClass('animated flipInY') },
+       function(){ $(this).removeClass('animated flipOutY') }
+)
+    });
+      $( "#all_seasons2" ).click(function() { alert( "Clicked on summer" ); });
+
+ $(".season").hover(function(){
+       $('#all_seasons3').hover(
+       function(){ $(this).addClass('animated flipInY') },
+       function(){ $(this).removeClass('animated flipOutY') }
+)
+    });
+       $( "#all_seasons3" ).click(function() { alert( "Clicked on autumn" ); });
+    
+ $(".season").hover(function(){
+       $('#all_seasons4').hover(
+       function(){ $(this).addClass('animated flipInY') },
+       function(){ $(this).removeClass('animated flipOutY') }
+)
+    });
+      $( "#all_seasons4" ).click(function() { alert( "Clicked on winter" ); });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+<head>
+<title> Weather report </title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
+<script src="http://code.jquery.com/ui/1.7.0/jquery-ui.js" ></script>
+<script type="text/javascript">
+
+  window.onload =temp(); 
+
+function temp() {
+  var startPos;
+
+  var geoSuccess = function gotLocation(position) {
+    startPos = position;
+    api_url = "http://api.openweathermap.org/data/2.5/forecast/daily?lat=17.69&lon=83.21&appid=67d5acedabc9954f3bad3abb615039de";
+    
+             $.ajax({
+          url : api_url,
+          method : 'GET',
+          success : function (list) {
+var final = "";
+for(var i=0 ; i < list.list.length ;  i++)
+{
+
+var date = list.list[i].dt*1000;
+var dt = new Date(date);
+var n = dt.toDateString();
+console.log(date);
+console.log(dt);
+
+            var tempr = list.list[i].temp.morn;
+	//console.log(tempr);
+         var celsius = Math.round(tempr - 273.15);
+  //putting all the temperature values in a list        
+ final = final+celsius+"&#8451 &nbsp;&nbsp;"+n+"<br>";
+//icon
+  var icon = list.list[i].weather[0].icon;
+ $('#image').html("<img src = 'http://openweathermap.org/img/w/"+ icon +".png'>");
+console.log(icon);
+
+}
+          
+
+$('.weather').html(final);
+
+          $('#date').val(date);
+          
+}
+        });
+
+  };
+  navigator.geolocation.getCurrentPosition(geoSuccess);
+
+}
+ 
+</script>
+<style>
+
+body {
+    background: skyblue;
+    text-align: center;
+    margin-top: 10%;
+ }
+h1 {
+  margin-bottom: 50px;
+}
+.btn btn-xs {
+     margin-left: 50%;
+}
+
+</style>
+</head>
+
+<body>
+<h1> Visakhpatnam Weather Forecast </h1>
+<div id="date"></div>
+<div class="weather"></div>
+<div id="image"></div>
+
+</body>
+</html>
+
