@@ -17,6 +17,7 @@ h1{
 h2{
   text-align: center;
   font-size: 1.5em;
+  color: #100D09;
 }
 #search {
   margin: 1% 35%;
@@ -46,6 +47,7 @@ input[type="submit"]{
 span{
   display: inline-block;
   margin: 0 25px;
+  color: #2d0707;
 }
 span.distance{
   float: right;
