@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find now</title>
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  </head>
+  <body>
+      <h1> Pick your favourite fruit :P :D :D </h1>
+    <div id="homepage">
+<h2> Find fruits near your area!!!!</h2>
+          <div id="fruits"></div>
+      </div>
+  </body>
+
+  <script type="text/babel">
+class Fruits extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      fruits: []
+    },
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    const lng = this.refs.lng.value;
+    const lat = this.refs.lat.value;
+
+    fetch('/api/fruits?lng=' + lng +'&lat=' + lat).then(function(data){
+      return data.json();
+    }).then(json => {
+      this.setState({
+        fruits : json
+      });
+    });
+    }
+  render(){
+   const fruits = this.state.fruits;
+  const fruitDetails = fruits.map(function(fruit, index){
+      return(
+        <li key={index}>
+           <span className={fruit.obj.available}></span>
+          <span className="name">{fruit.obj.fruitName}</span>
+          <span className="color">{fruit.obj.color}</span>
+          <span className="distance">{Math.floor(fruit.dis/ 1000)}km</span>
+        </li>
+      );
+    });
+    return(
+      <div id="fruits-container">
+         <form id="search" onSubmit = {this.handleSubmit}>
+         <label>Enter your latitude</label>
+         <input type="text" ref="lat" placeholder="Latitude" required/>
+         <label> Enter your longitude</label>
+         <input type="text" ref="lng" placeholder="longitude" required/>
+         <input type="submit" value="Find Now" />
+         </form>
+           <ul>{fruitDetails}</ul>
+</div>
+    );
+  }
+}
+
+ReactDOM.render(<Fruits />, document.getElementById('fruits'));
+  </script>
+</html>

@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html>
+<head><title>List of Games</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+<script>
+$(document).ready(function(){
+  var div = $("#divTag");
+    var list = $("#listItems");
+    var state = $("#state");
+    $("#openBtn").click(function(e){
+      e.preventDefault();
+        list.show();
+        div.animate({left: '620px',height: '400px', width: '300px', paddingLeft: "20px"}, "slow");
+        div.animate({fontSize: '2em',backgroundColor: '#de8db4',color: '#d8096c'}, "slow");
+        state.animate({marginTop: "+30%"}, "slow");
+    });
+    $("#closeBtn").click(function(e){
+      e.preventDefault();
+    div.animate({right: '200px', height: '0px', width: '0px'},"slow");
+    list.hide();
+    state.animate({marginTop: "10%"}, "slow");
+    });
+    $(function(){
+  $("a").click(function(){
+    // alert($(this).text());
+    state.html('<h2> You picked " '+ $(this).text()+ ' " as your favourite sport!!</h2>')
+  });
+});
+});
+
+</script>
+<style media="screen">
+
+  @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+  html,body{
+    font-family: 'Berkshire Swash', cursive;
+    background-color: #2d2828;
+    text-align: center;
+    margin: auto;
+  }
+  ul{
+    margin-top: 20px;
+    display:none;
+    text-align: left;
+  }
+  li {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  li a{
+    text-decoration: none;
+    color: #340e35;
+  }
+  button{
+    position: relative;
+    background-color: #444040;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Berkshire Swash', cursive;
+    margin: 30px;
+    padding: 12px 28px;
+    text-align: center;
+  }
+
+  #divTag{
+    position:absolute;
+    width:50px;
+    height:20px;
+    display:hidden;
+  }
+
+  #state{
+    color: #fff;
+    font-size: 1em;
+  }
+</style>
+</head>
+
+<body>
+<button id="openBtn">OpenGamesList</button>
+<button id="closeBtn">CloseGamesList</button>
+<div id ="divTag">
+
+<ul id="listItems">
+  Pick your favorite Sport
+<li><i><a href="#">FootBall</a></li>
+<li><i><a href="#">BasketBall</a></li>
+<li><i><a href="#">Tennis</a></li>
+<li><i><a href="#">Golf</a></li>
+<li><i><a href="#">TableTennis</a></li>
+<li><i><a href="#">Badminton</a></li>
+<li><i><a href="#">VolleyBall</a></li>
+</ul>
+</div>
+
+<div id="state"></div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    html,body {
+margin: 0;
+background: #fafafa;
+font-family:'Fira Sans', 'Trebuchet MS', sans-serif;
+}
+
+#knob {
+position: absolute;
+height: 200px;
+width: 200px;
+top: 50%;
+left: 50%;
+margin-top: -100px;
+margin-left: -100px;
+border-radius: 100px;
+border: 2px solid #000;
+box-sizing:border-box;
+background: #f8f8f8;
+-moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;
+}
+
+#knob:before {
+content: '';
+position: absolute;
+height: 2px;
+width: 10px;
+top: 95px;
+left: 10px;
+/*transform: rotate(45deg);*/
+background: #2a5;
+}
+
+#knobdimple {
+position: absolute;
+height: 40px;
+width: 40px;
+top: 40%;
+left: 12%;
+border-radius: 100px;
+background: red;
+border: 1px solid red;
+transform: inherit;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </head>
+  <body>
+ <div id="knob" class="knob">
+   <div id="knobdimple"></div>
+ </div>
+  <script type="text/javascript">
+//  getDistance = function ( x1, y1, x2, y2 ) {
+//     return Math.sqrt((x1-x2) * (x1-x2) + (y2-y1) * (y2-y1));
+// },
+  var  knob = document.querySelector(".knob"),
+
+    isDragging = false;
+
+    var arrowRects = knob.getBoundingClientRect();
+    var arrowX = arrowRects.left + arrowRects.width / 2;
+    var arrowY = arrowRects.top + arrowRects.height / 2;
+console.log(arrowRects);
+
+function mouseMoveHandler (event,touchorMouse){
+  if (isDragging){
+     if(touchorMouse  == "mouse"){
+           var curX = event.clientX,
+           curY = event.clientY;
+     }else{
+           var curX = event.changedTouches[0].clientX,
+           curY = event.changedTouches[0].clientY;
+     }
+     console.log(arrowX . arrowY);
+     console.log(Math.atan2(curY - arrowY, curX - arrowX));
+
+     knob.style.transform = "rotate(" + Math.atan2(curY - arrowY, curX - arrowX)+ "rad)";
+
+    //    var knob = $("#knob"),
+    //    rotateCSS = 'rotate(' + rotation + 'deg)';
+    //   console.log(getDistance(curX,curY,lastX,lastY));
+    //   rotation = rotation + getDistance(curX,curY,lastX,lastY);
+     //
+    //   knob.css({
+    //       '-moz-transform': rotateCSS,
+    //       '-webkit-transform': rotateCSS,
+    //       'transform': rotateCSS
+    //   });
+    //   lastX = curX;
+    //   lastY = curY;
+  }
+}
+
+knob.addEventListener('mouseup',function (event) {
+    isDragging = false;
+});
+knob.addEventListener('mouseleave',function (event) {
+    isDragging = false;
+});
+
+knob.addEventListener('touchend',function (event) {
+    isDragging = false;
+});
+knob.addEventListener('touchcancel',function (event) {
+    isDragging = false;
+});
+
+knob.addEventListener('mousedown',function(event) {
+    isDragging = true;
+    lastX = event.clientX;
+    lastY = event.clientY;
+
+});
+
+
+knob.addEventListener('touchstart',function(event){
+  console.log('hai');
+  isDragging = true;
+  lastX = event.changedTouches[0].clientX;
+  lastY = event.changedTouches[0].clientY;
+});
+
+knob.addEventListener('mousemove',function(event) {
+    mouseMoveHandler (event,"mouse");
+});
+
+knob.addEventListener('touchmove',function(event) {
+    mouseMoveHandler (event,"touch");
+});
+
+</script>
+
+</html>

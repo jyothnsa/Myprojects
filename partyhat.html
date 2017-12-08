@@ -1,0 +1,115 @@
+<html>
+ <head>
+   <title>Party Hat</title>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <link href='//fonts.googleapis.com/css?family=Bonbon' rel='stylesheet'>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <style media="screen">
+
+ body {
+ background-color: #000;
+ font-family: 'Bonbon';
+ color: #fff;
+ }
+
+ .container {
+   position: absolute;
+   margin: auto;
+   top: -200px; bottom: 0;
+   left: 0; right: 0;
+   width: 200px; height: 200px;
+ }
+
+.party-hat {
+  position: absolute;
+  margin-top:30px;
+  width: 0; height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 200px solid #E25178;
+  transform: rotate(-20deg);
+}
+ .polka {
+   position: absolute;
+   top: 20px;
+  right: -9px;
+   width: 13px; height: 13px;
+   border-radius: 100%;
+   background: #fff;
+}
+ .polka.two{
+   top: 50px;
+   right: 9px;
+ }
+ .polka.three{
+   top: 70px;
+   right: -27px;
+ }
+ .polka.four{
+   top: 90px;
+   right: 8px;
+ }
+ .polka.five{
+   top: 120px;
+   right: -30px;
+ }
+ .polka.six{
+   top: 150px;
+   right: 17px;
+ }
+ .polka.seven{
+   top: 155px;
+   right: -65px;
+ }
+ .polka.eight{
+   top: 176px;
+   right: -20px;
+ }
+ .polka.nine{
+   top: 120px;
+   right: 40px;
+ }
+ .polka.ten{
+   top: 175px;
+   right: 60px;
+ }
+
+ #curve{
+
+           position:absolute;
+           width:124px;
+           height:146px;
+           right:-10px;
+           border-top:2px solid #fff;
+           border-left:2px solid #fff;
+           border-top-left-radius:176px;
+           margin-top: 145px;
+           /*float:left;*/
+           /*margin-left:10px;*/
+           transform: rotate(-150deg);
+           }
+
+ </style>
+ </head>
+
+ <body>
+   <div class="container">
+   <h2>Party Hat</h2>
+   <div class="party-hat">
+     <div class="polka"></div>
+     <div class="polka two"></div>
+     <div class="polka three"></div>
+     <div class="polka four"></div>
+     <div class="polka five"></div>
+     <div class="polka six"></div>
+     <div class="polka seven"></div>
+     <div class="polka eight"></div>
+     <div class="polka nine"></div>
+     <div class="polka ten"></div>
+   </div>
+   <div id="curve"></div>
+   </div>
+ </div>
+ </body>
+</html>

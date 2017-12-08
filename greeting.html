@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Greeting on Your Bday!! :) </title>
+  <meta charset="utf-8">
+  <meta name ="view-port" content= "width=device-width , initial-scale =1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <style>
+  /*inside the card*/
+     @import url('http://fonts.googleapis.com/css?family=Cookie');
+/*outside the card*/
+     @import url('http://fonts.googleapis.com/css?family=Jim+Nightshade');
+
+     * {
+       box-sizing: border-box;
+       -moz-box-sizing: border-box;
+       -webkit-box-sizing: border-box;
+     }
+     body {
+       background: #92F3CC;
+       background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/High-Res-White-Glitter-Background.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+       -moz-background-size: cover;
+       -webkit-background-size: cover;
+       padding: 50px;
+     }
+
+     #card-outside {
+       color: #ffffff;
+     }
+
+     #card,#card-inside,#card-outside {
+      height: 600px;
+    }
+
+     #card-outside {
+       background-color: #515D5A;
+       transform-origin: left;
+       -moz-transform-orign: left;
+       -webkit-transform-origin: left;
+       transition: transform 1s linear;
+       -moz-transition: transform 1s linear;
+       -webkit-transition: transform 1s linear;
+       position: relative;
+       font-size: 50px;
+       font-family: 'Nightshade';
+       font-style: italic;
+     }
+
+     #card-outside .wrap {
+       transition: background 1s linear;
+       -moz-transition: background 1s linear;
+       -webkit-transition: background 1s linear;
+     }
+
+     #card-inside {
+       font-size: 2.2em;
+       line-height:1.4;
+       font-family: 'Cookie';
+       color: #000;
+       font-style:italic;
+     }
+
+     #card-inside .wrap {
+       background: #FFEFEF;
+       -webkit-box-shadow: inset 2px 0 1px rbga(0,0,0,.5);
+       -moz-box-shadow: inset 2px 0 1px rbga(0,0,0,.5);
+       box-shadow: inset 2px 0 1px rbga(0,0,0,.5);
+     }
+
+     #card {
+       max-width: 960px;
+       margin: 0 auto;
+       transform-style: preserve-3d;
+       -moz-trasform-style: preserve-3d;
+       -webkit-transform-style: preserve-3d;
+       perspective: 5000px;
+      -moz-perspective: 5000px;
+      -webkit-perspective: 5000px;
+      position: relative;
+     }
+
+     #card-outside {
+    background-color: #515D5A;
+    background-image: linear-gradient(top, #515D5A 0%, #858d8b 100%);
+    background-image: -moz-linear-gradient(top, #515D5A 0%, #858d8b 100%);
+    background-image: -webkit-linear-gradient(top, #515D5A 0%, #858d8b 100%);
+    transform-origin: left;
+    -moz-transform-origin: left;
+    -webkit-transform-origin: left;
+    transition:         transform 1s linear;
+    -moz-transition:    -moz-transform 1s linear;
+    -webkit-transition: -webkit-transform 1s linear;
+    position: relative;
+}
+
+     #card h2 {
+       text-align: center;
+       font-family: 'Nightshade';
+       font-style: italic;
+       font-size: 80px;
+       text-shadow:
+               4px 4px 0 rbga(0,0,0,.15),
+               1px 1px 0 rbga(255, 200, 200, 255),
+               2px 2px 0 rgba(255, 150, 150, 255),
+               3px 3px 0 rgba(255, 125, 125, 255);
+      
+     }
+     #card-outside,#card-inside {
+       width: 50%;
+       -webkit-box-shadow: 2px 2px 30px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.5);
+       -moz-box-shadow:2px 2px 30px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.5);
+       box-shadow: 2px 2px 30px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.5);
+       position: absolute;
+       left: 25%;
+     }
+
+     .wrap {
+       padding: 1.5em 2.5em;
+       height: 100%;
+     }
+
+     #card-outside button {
+       position: absolute;
+       bottom: 1px;
+       right: 1px;
+       background-color: #515D5A;
+       color: #fff;
+       font-size: 30px;
+       font-family: 'Nightshade';
+       font-style: italic;
+       font-weight: bold;
+       border: none;
+       cursor:pointer;
+       box-shadow: 2px 2px 3px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.4);
+       -moz-box-shadow: 2px 2px 3px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.4);
+       -webkit-box-shadow: 2px 2px 3px rbga(0,0,0,.25), 0 0 1px rbga(0,0,0,.4);
+     }
+     #card-outside button:hover;
+     #card-outside button:focus {
+       background: #000;
+     }
+
+     #close_btn {
+       display: none;
+     }
+
+     #card.open-fully #close_btn,
+     #card.open-half #close_btn {
+       display: inline;
+     }
+
+     #card.open-fully #open_btn {
+       display: none;
+     }
+
+
+     #card.open-half #card-outside,
+     #card.close-half #card-outside {
+                 transform: rotateY(-90deg);
+            -moz-transform: rotateY(-90deg);
+         -webkit-transform: rotateY(-90deg);
+     }
+     #card.open-half #card-outside .wrap {
+         background-color: #000;
+     }
+
+     #card.open-fully #card-outside,
+     #card.close-half #card-outside {
+       background: #515D5A;
+     }
+
+     #card.open-fully #card-outside {
+         transform: rotateY(-180deg);
+         -moz-transform: rotateY(-180deg);
+         -webkit-transform: rotateY(-180deg);
+     }
+
+     #card.open-fully #card-outside .wrap {
+         background-color: rgba(255, 0, 0, 0);
+     }
+
+     #card.open-fully #card-outside .wrap *,
+     #card.close-half #card-outside .wrap * {
+        display: none;
+     }
+       p {
+         text-align: center;
+         margin-top:10px;
+       }
+       p.signed {
+    margin-top: 1.5em;
+    /*text-align: center;*/
+    margin-left: 200px;
+    font-family: 'Cookie', sans-serif;
+    font-size: 25px;
+}
+  </style>
+
+  <script>
+ window.onload = function() {
+//     (function(){
+//     function $(id) {
+//       return document.getElementById(id);
+//     }
+//     var card = $("card"),
+//         openButton = $("open_btn"),
+//         closeButton = $("close_btn"),
+        var timer = null;
+        var card = document.getElementById("card");
+        var openButton = document.getElementById("open_btn");
+        var closeButton = document.getElementById("close_btn");
+    openButton.addEventListener('click',function(){
+      card.setAttribute('class','open-half');
+        if(timer) clearTimeout(timer);
+        timer = setTimeout(function(){
+          card.setAttribute('class','open-fully');
+          timer = null;
+
+        }, 1000);
+    });
+
+    closeButton.addEventListener('click',function(){
+      card.setAttribute('class','close-half');
+      if(timer) clearTimeout(timer);
+      timer = setTimeout(function(){
+        card.setAttribute('class','');
+        timer = null;
+
+      }, 1000);
+    });
+  }
+  </script>
+</head>
+
+<body>
+  <div id ="card">
+
+    <div id ="card-inside">
+      <div class="wrap">
+        <p> A friend like you makes the dark days a little sunnier, and makes all sunny days even more cheerful! On your birthday and each day of this year, may you know how special you are to me! Happy Birthday, friend!
+</p>
+
+<p> Forget the past; look forward to the future, for the best things are yet to come. </p>
+        <p class="signed">Jyothsna..</p>
+      </div>
+    </div>
+
+    <div id="card-outside">
+    <div class="wrap">
+      <p> <h2> Happy Birthday!! </h2> </p>
+      <p> Jyothsna </p>
+    </div>
+    <button id ="open_btn">&gt;</button>
+    <button id ="close_btn">&lt;</button>
+  </div>
+<!-- Forget the past; look forward to the future, for the best things are yet to come.
+
+A friend like you makes the dark days a little sunnier, and makes my sunny days even more cheerful! On your birthday and each day of this year, may you know how special you are to me! Happy Birthday, friend!
+
+A friend like you is more priceless than the most beautiful diamond. You are not only strong and wise, but kind and thoughtful as well. Your birthday is the perfect opportunity to show you much I care and how grateful I am to have you in my life. -->
+
+</div>
+</body>
+  </html>

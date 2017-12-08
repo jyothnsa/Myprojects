@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Parisienne');
+html,body{
+  background-image: url('./assets/Menu+Background+2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+#hotels-container{
+  font-family: 'Parisienne', cursive;
+}
+h1{
+  text-align: center;
+  font-size: 3em;
+  color: #100D09;
+}
+h2{
+  text-align: center;
+  font-size: 1.5em;
+  color: #100D09;
+}
+#search {
+  margin: 1% 35%;
+}
+select{
+  width: 180px;
+  height: 50px;
+  border: 2px ridge #b59b7f;
+  border-radius: 5px;
+  background-color: #0c0c0c;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5em;
+  color: #b59b7f;
+  position: relative;
+}
+input[type="submit"]{
+  width: 180px;
+  height: 50px;
+  border: 2px ridge #b59b7f;
+  border-radius: 5px;
+  background-color: #0c0c0c;
+  color:#b59b7f;
+  cursor: pointer;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5em;
+}
+span{
+  display: inline-block;
+  margin: 0 25px;
+  color: #2d0707;
+}
+span.distance{
+  float: right;
+  color: green;
+}
+
+span.true{
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background: green;
+}
+span.false{
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background: #ff5252;
+}
+li{
+    list-style-type: none;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.rating{
+  color: #4c1e2d;
+}
+

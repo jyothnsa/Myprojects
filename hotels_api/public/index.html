@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <meta charset="utf-8">
+  <meta name ="view-port" content= "width=device-width , initial-scale =1">
+  <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>   -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="finder">
+      <div id="hotelsFinder">
+
+      </div>
+    </div>
+  </body>
+  <script type="text/babel">
+    class Hotels extends React.Component{
+      constructor(props){
+        super(props);
+        this.state = {
+          hotels: [],
+          title: "Where's The Food",
+          hotelNames: ['Akkayapalem','Beachroad','CBM compound','Diamondpark','Dabagardens','Dondaparty','Gajuwaka','Harbour park road','Iskatotha','MVP','Siripuram','SriKanya','Seetammadhara','SagarNagar','VIP road','Waltair Uplands']
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+handleSubmit(e){
+  e.preventDefault(e);
+  const location = this.refs.location.value;
+
+  fetch('/api/hotels?location=' + location).then(function(data){
+    return data.json();
+  }).then(json => {
+    this.setState({
+      hotels: json
+    });
+  });
+}
+      render(){
+
+          const hotelDetails = this.state.hotels.map(function(hotel, index){
+          return(
+            <li key={index}>
+              <span className = {hotel.status}></span>
+              <span className="name">{hotel.hotelName}</span>
+              <span className="rating">{hotel.rating}</span>
+            </li>
+          );
+        });
+        const hotelNames = this.state.hotelNames.map(function(names,index){
+          return(
+                <option  key = {index} value = {names}> {names} </option>
+          );
+        });
+        return(
+          <div id="hotels-container">
+          <h1> {this.state.title} </h1>
+          <h2> Find restuarants nearby ur location with their ratings...! </h2>
+                 <form id="search" onSubmit = {this.handleSubmit}>
+              <select ref="location">
+              <option defaultValue> Pick ur location </option>
+                      {hotelNames}
+                </select>
+             <input type="submit" value="Find Now" />
+             </form>
+               <ul>{hotelDetails}</ul>
+    </div>
+        )
+      }
+    }
+    ReactDOM.render(<Hotels />, document.getElementById('hotelsFinder'));
+  </script>
+</html>

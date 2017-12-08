@@ -1,0 +1,160 @@
+<html>
+<head>
+<title> Weather report </title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
+<script src="http://code.jquery.com/ui/1.7.0/jquery-ui.js" ></script>
+<script type="text/javascript">
+
+  window.onload =temp(); 
+
+function temp() {
+  var startPos;
+
+  var geoSuccess = function gotLocation(position) {
+    startPos = position;
+    api_url = "http://api.openweathermap.org/data/2.5/weather?lat=17.69&lon=83.21&appid=67d5acedabc9954f3bad3abb615039de";/*apicall for vizag with lat and lon */
+    
+             $.ajax({
+          url : api_url,
+          method : 'GET',
+          success : function (data) {
+            var tempr = data.main.temp;
+	console.log(tempr);
+            var icon = data.weather[0].icon;
+            var city = data.name;
+            var celsius = Math.round(tempr - 273.15);
+            var faren = Math.round( (celsius * 9)/5 + 32 );
+           if($("#toggle_id").text()!= "celsius"){
+            $('#weather').html(celsius + '&#8451');}
+          else
+           $('#weather').html(faren + '&#8457');
+           $('#image').html("<img src = 'http://openweathermap.org/img/w/"+icon + ".png'>");
+           $('#cityid').val(city);
+          }
+
+        });
+
+  };
+  navigator.geolocation.getCurrentPosition(geoSuccess);
+
+}
+/*get weather report using cities names */
+function cities() {
+     var city_val = $("#cityid").val();
+     api_url = "http://api.openweathermap.org/data/2.5/weather?q="+city_val+"&appid=67d5acedabc9954f3bad3abb615039de";
+
+           $.ajax({
+          url : api_url,
+          method : 'GET',
+          success : function (data) {
+           var icon = data.weather[0].icon;
+	   var tempr = data.main.temp;
+	   var celsius = Math.round(tempr - 273.15);
+           var faren = Math.round( (celsius * 9)/5 + 32 );
+           if($("#toggle_id").text()!= "celsius"){
+            $('#weather').html(celsius + '&#8451');}
+          else
+           $('#weather').html(faren + '&#8457');
+ $('#image').html("<img src = 'http://openweathermap.org/img/w/"+icon + ".png'>");
+           $('#cityid').val(city_val);
+          }
+
+});
+
+}
+/* function to get weather for different cities along with its temperature change */
+function convert(){
+          var city_val = $("#cityid").val();
+          api_url = "http://api.openweathermap.org/data/2.5/weather?q="+city_val+"&appid=67d5acedabc9954f3bad3abb615039de";
+
+           $.ajax({
+          url : api_url,
+          method : 'GET',
+          success : function (data) {
+           var icon = data.weather[0].icon;
+	var tempr = data.main.temp;
+        $('#image').html("<img src = 'http://openweathermap.org/img/w/"+icon + ".png'>");
+        var celsius = Math.round(tempr - 273.15);
+        var faren = Math.round( (celsius * 9)/5 + 32 );
+        if($("#toggle_id").text()!= "celsius"){
+            $('#weather').html(celsius + '&#8451');}
+        else
+           $('#weather').html(faren + '&#8457');
+          }
+
+});
+}
+
+$(document).ready(function() {
+
+    $("#toggle_id").click(function(){
+    if( $("#toggle_id").text()== "celsius"){
+    $(this).text("faren"); 
+    convert();
+
+} else {
+   $(this).text("celsius");
+convert();
+}
+  }); 
+
+   $('.input').keypress(function (e) {
+  if (e.which == 13) {
+    $('#city_name').submit();
+   cities();
+return false;
+  }
+});
+});
+
+
+</script>
+<style>
+
+body {
+    background: skyblue;
+    text-align: center;
+    margin-top: 10%;
+ }
+h1 {
+  margin-bottom: 50px;
+}
+#weather {
+     font-size: 30px;
+     margin-right: 2%;
+}
+.btn btn-xs {
+     margin-left: 50%;
+}
+div {
+     font-size: 20px; 
+}
+#image {
+     margin-right: 2%;  
+}
+#toggle_id {
+     margin-right: 2%;
+}
+</style>
+</head>
+
+<body>
+<h1> Weather Report </h1>
+<div>
+City: <input type="text" id="cityid" class="input" style="text-align: center;">    <button id="city_name" class = "btn btn-xs">Select ur city</button>
+</div></br>
+
+<div id="weather"></div>
+<div id="image"></div>
+<button id="toggle_id" class="btn btn-default">faren</button>
+
+</body>
+
+</html>
+
+
