@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="icon" type="image/png" href="http://localhost/my_projects/new/bq/imgs/favicon1.jpg">
+  <link rel="stylesheet" type="text/css" href="bqstyle.css">
+<script>
+    $(function(){
+      $("#includenav").load("nav.php");
+    });
+    </script>
+</head>
+<body class="two">
+ <div id="includenav"></div>
+<div class="container">
+
+<h1>Contact Us</h1> <br>
+
+<form role="form">
+<div class="form-group">
+ <label for="usr" style="color: white; font-size: 20px;">Email:</label>
+      <input type="text" class="form-control" id="usr"> <br/><br/><br/>
+</div>
+
+    <div class="form-group">
+      <label for="comment" style="color: white; font-size: 20px;">Query:</label>
+      <textarea class="form-control" rows="3" id="comment"> </textarea> <br/><br/><br/>
+
+</div>
+   </form>
+
+<button type="submit" class="btn btn-default">Submit</button>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+.nav.navbar-nav.navbar-right li a {
+    color: #00FFFF;
+}
+
+nav.navbar-brand {
+color: #FFFF00;
+}
+p.a{
+font-style: italic;
+font-size: 30px;
+font-weight: normal;
+color: white;
+}
+
+div.container h1{
+color: white;
+font-weight: bold;
+font-style: italic;
+margin-top: 100px;
+}
+body.one{
+background:url("http://traveldilse.com/wp-content/uploads/2014/05/Free-Cool-Backgrounds-for-Websites-Blue-Pattern-1024x705.jpg") no-repeat center center fixed;
+background-size:cover;
+}
+body.two{
+background:url("http://traveldilse.com/wp-content/uploads/2014/05/Free-Cool-Backgrounds-for-Websites-Blue-Pattern-1024x705.jpg") no-repeat center center fixed;
+background-size:cover;
+overflow:hidden;
+}
+body.three{
+background:url("http://traveldilse.com/wp-content/uploads/2014/05/Free-Cool-Backgrounds-for-Websites-Blue-Pattern-1024x705.jpg") no-repeat center center fixed;
+background-size:cover;
+margin-top:100px;
+}
+body.four{
+background-color: #CCFF66;
+}
+body.six{
+background:url("http://traveldilse.com/wp-content/uploads/2014/05/Free-Cool-Backgrounds-for-Websites-Blue-Pattern-1024x705.jpg") no-repeat center center fixed;
+background-size:cover;
+overflow:hidden;
+}
+
+.form_bg {
+    background-color:#eee;
+    color:#666;
+    padding:20px;
+    border-radius:10px;
+    position: absolute;
+    border:1px solid #fff;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    height: 280px;
+}
+.align-center {
+    text-align:center;
+}
+html {
+    position: relative;
+    min-height: 100%;
+    overflow: auto;
+
+}
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+.item:nth-child(1) {
+    background: url("http://localhost/my_projects/new/bq/imgs/first/q.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(2) {
+    background: url("http://localhost/my_projects/new/bq/imgs/first/q1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(3) {
+    background: url("http://localhost/my_projects/new/bq/imgs/first/q2.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(4) {
+    background: url("http://localhost/my_projects/new/bq/imgs/first/q3.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.carousel {
+    z-index: -99;
+}
+.carousel .item {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.title {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  text-shadow: 2px 2px #000;
+  }
