@@ -1,0 +1,142 @@
+/** {
+  box-sizing: border-box;
+}*/
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
+
+html{
+  width:100%;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #000;
+  overflow: hidden;
+}
+h1{
+  text-align: center;
+  color: #FFE766;
+  font-family: 'Homemade Apple', cursive;
+  font-size: 4em;
+  background-image: url(http://le-petit-chateau.com/blog/wp-content/uploads/2016/12/merry-christmas-1872500_1920.png);
+  }
+.primary {
+  width: 100%;
+  height:100%;
+  min-height: 760px;
+  position: relative;
+  top: -60%;
+  left: 0;
+  /*background-image: url(http://le-petit-chateau.com/blog/wp-content/uploads/2016/12/merry-christmas-1872500_1920.png);
+  background-position: top;
+  z-index: 100;*/
+  background-color: #000000;
+  transform: translate3d(0,0,0);
+}
+/*.wishes{
+  background-position: top;
+  background-image: url(http://le-petit-chateau.com/blog/wp-content/uploads/2016/12/merry-christmas-1872500_1920.png);
+  z-index: 1;
+}*/
+  .tree {
+    animation: parallax_fg linear 20s infinite both;
+    background:  url(http://localhost/my_projects/jyothsna/parallax/assets/tree.png) 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 16%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*animation-iteration-count: 2;*/
+    background-size:  auto 106px;
+  }
+  .home {
+    animation: parallax_fg linear 20s infinite both;
+    background:  url(http://localhost/my_projects/jyothsna/parallax/assets/home.png) 0 100% repeat-x;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:auto 480px;
+  }
+  .lights {
+    animation: parallax_fg linear 0s infinite both;
+      background:  url(http://localhost/my_projects/jyothsna/parallax/assets/lights.png) 0 100% repeat-x;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+    top: -48%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:  auto 80px;
+  }
+.santa {
+  background: url(http://localhost/my_projects/jyothsna/parallax/assets/santa.png) 0 100% no-repeat;
+  z-index: 1;
+  position: absolute;
+  bottom: 350px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size:  auto 350px;
+  animation: parallax_layer linear 15s infinite both;
+}
+
+@keyframes parallax_fg {
+  0% { background-position: 2765px 100%;}
+  100% {background-position: 550px 100%; }
+}
+@keyframes parallax_layer {
+  0% { background-position: -300px 100%;}
+  100% {background-position: 2000px 100%; }
+}
+/*@keyframes parallax_tree {
+  0%, 100% {
+     transform: translate(200px, 0);
+}
+}*/
+
+@keyframes animatedBackground {
+			from { background-position: 0 0; }
+			to { background-position: 100% 0; }
+		}
+@keyframes animatedBackground2 {
+    			0%   { background-position: 0px; }
+      100% { background-position: 0px 1222px; } /* set this to the height of the image */
+    		}
+/*@keyframes animatedBackground3 {
+        			0%   { top: 0px; }
+          100% { background-position: 0px 200px; } /* set this to the height of the image */
+        		}*/
+
+#animate-area	{
+	width: 100%;
+	height: auto;
+  animation: animatedBackground 80s linear infinite;
+}
+
+#animate-area2	{
+	width: 2005px;
+	height: 1222px;
+  position:absolute;
+  z-index: 2;
+	background-image: url(http://localhost/my_projects/jyothsna/parallax/assets/snowf.png);top:0;left:50%;transform: translateX(-50%);
+	background-position: 0 0;
+	background-repeat: repeat-y;
+animation: animatedBackground2 30s infinite linear;
+}
+/*#gift	{
+	width: 100%;
+	height: 100%;
+  position:absolute;
+  z-index: 2;
+	background-image: url(http://pngimg.com/uploads/gift/gift_PNG5958.png);
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+	background-position: 0 0;
+	background-repeat: repeat-y;
+  background-size:auto 40px;
+animation: animatedBackground3 5s infinite ;
+}*/
