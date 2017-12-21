@@ -7,10 +7,8 @@
   </head>
   <body>
     <div class="primary">
-      <audio src="http://localhost/my_projects/jyothsna/parallax/assets/merry-christmas-ho-ho-ho.mp3" controls id=audio style="visibility:hidden;">
-<h1>Happy Christmas</h1>
-</audio>
-
+      <h1>Happy Christmas</h1>
+      <audio id= "audio" style="visibility:hidden;" src="http://localhost/my_projects/jyothsna/parallax/assets/merry-christmas-ho-ho-ho.mp3" controls ></audio>
       <!-- <div class="wishes"></div> -->
       <div class="parallax-layer lights"></div>
       <div id="gift"></div>
@@ -21,4 +19,11 @@
       <div class="parallax-layer tree"></div>
     </div>
   </body>
+  <script type="text/javascript">
+    window.onload = function(){
+      var santaLaugh = document.getElementById('audio');
+      santaLaugh.loop = true;
+      santaLaugh.play();
+    }
+  </script>
 </html>
