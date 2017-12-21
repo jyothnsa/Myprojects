@@ -37,7 +37,7 @@ h1{
   z-index: 1;
 }*/
   .tree {
-    animation: parallax_fg linear 20s infinite both;
+    animation: parallax_fg linear 15s infinite both;
     background:  url(http://localhost/my_projects/jyothsna/parallax/assets/tree.png) 0 100% repeat-x;
     z-index: 1;
     position: absolute;
@@ -49,7 +49,7 @@ h1{
     background-size:  auto 106px;
   }
   .home {
-    animation: parallax_fg linear 20s infinite both;
+    animation: parallax_fg linear 15s infinite both;
     background:  url(http://localhost/my_projects/jyothsna/parallax/assets/home.png) 0 100% repeat-x;
     z-index: 1;
     position: absolute;
@@ -80,7 +80,7 @@ h1{
   width: 100%;
   height: 100%;
   background-size:  auto 350px;
-  animation: parallax_layer linear 15s infinite both;
+  animation: parallax_layer linear 20s infinite both;
 }
 
 @keyframes parallax_fg {
